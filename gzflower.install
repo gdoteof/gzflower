@@ -1,0 +1,40 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the gzflower module.
+ */
+
+/**
+ * Implements hook_schema().
+ */
+function gzflower_schema() {
+  $schema['gzflower'] = array(
+    'description' => 'Stores data for flower for a particular user',
+    'fields' => array(
+      'uid' => array(
+        'type' => 'int',
+        'not null' => TRUE,
+        'description' => 'Primary Key: the users id',
+      ),
+      'data' => array(
+        'type' => 'text',
+        'description' => "The serialized data containing the users quiz information",
+      ),
+    ),
+    'primary key' => array('uid'),
+    'foreign_keys' => array(
+      'user' => array(
+        'table' => 'user',
+        'columns' => array('uid'=>'uid'),
+      ),
+    ),
+  );
+  return $schema;
+}
+
+/**
+ * Implements hook_install().
+ */
+function gzflower_install() {
+}

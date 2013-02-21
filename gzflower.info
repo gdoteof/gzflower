@@ -1,0 +1,5 @@
+name = Girlzone Flower
+description = Provides the quizes and rendering for the girlzone flower
+package = Girl Zone
+core = 7.x
+configure = admin/config/gzflower

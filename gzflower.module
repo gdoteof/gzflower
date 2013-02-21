@@ -1,0 +1,43 @@
+<?php
+/**
+ * Implements hook_menu().
+ */
+function gzflower_menu() {
+  $items['admin/config/gzflower'] = array(
+    'page callback' => 'gzflower_config_page',
+    'access arguments' => array('Administer site configuration'),
+    'title' => 'gzflower config',
+  );
+  $items['user/%user/flower'] = array(
+    'page callback' => 'gzflower_page',
+    'access arguments' => array('access content'),
+    'title' => 'gzflower test',
+  );
+  $items['user/%user/flower/%gzflower_gzquiz'] = array(
+    'page callback' => 'gzflower_quiz_page',
+    'access arguments' => array('access content'),
+    'title' => 'gzflower test',
+  );
+  return $items;
+}
+
+function gzflower_config_page(){
+  return 'gz flower config holder';
+}
+
+
+function gzflower_page(){
+  return t('wtf');
+}
+
+function gzflower_quiz_page($user, $quiz){
+  
+}
+
+function qzflower_gzquiz_load($quiz_number){
+  $quizzes = _gzflower_get_quizzes();
+  if(!isset($quizzes[$quiz_number - 1])){
+    drupal_not_found();
+  }
+  return $quizzes[$quiz_number -1];
+}
