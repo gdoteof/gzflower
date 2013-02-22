@@ -1,6 +1,27 @@
 ﻿<?php
 
-function girlzone_exercise_results($results){
+function gzflower_exercise_results($answers){
+  dpm($answers);
+  $sum = 0;
+  $vals = array('A'=>1, 'B'=>2, 'C' => 3);
+  foreach($answers as $answer){
+    $sum += $vals[$answer]; 
+  }
+  if($sum <= 9){
+    $color = "#e98890";
+    $description = "Self-Motivators: You like structure and organization but may find yourself losing interest in your usual activities. Try adding something new to your routine.";
+  }
+  elseif($sum <= 14){
+    $color = "#e05863";
+    $description = "Team Players: To you, exercise is a way to socialize. Try signing up for an exercise class, forming a walking group, or joining a sports team or club.";
+
+  }
+  else{
+    $color = "#8c373e";
+    $description = "Spontaneous Types: You love freedom. A call from a friend to take a hike or a walk to the store for an unexpected item may be what motivates you to be active. These activities are good, but be sure to include a variety of moderate intensity activities on 5 or more days of the week.";
+
+  }
+  return array($color, $description);
 /*
 To find your score, give yourself points as follows:
 
@@ -10,16 +31,11 @@ c = 3 points
 
 If you scored:
 
-(HEX #e98890) 6-9 points - Self-Motivators: You like structure and organization but may find yourself losing
-interest in your usual activities. Try adding something new to your routine.
+(HEX #e98890) 6-9 points - Self-Motivators: You like structure and organization but may find yourself losing interest in your usual activities. Try adding something new to your routine.
 
-(HEX #e05863)10 - 14 points -Team Players: To you, exercise is a way to socialize. Try signing up for an
-exercise class, forming a walking group, or joining a sports team or club.
+(HEX #e05863)10 - 14 points -Team Players: To you, exercise is a way to socialize. Try signing up for an exercise class, forming a walking group, or joining a sports team or club.
 
-(HEX #8c373e) 15-18 points Spontaneous Types: You love freedom. A call from a friend to take a hike or a walk
-to the store for an unexpected item may be what motivates you to be active. These activities are
-good, but be sure to include a variety of moderate intensity activities on 5 or more days of the
-week.
+(HEX #8c373e) 15-18 points Spontaneous Types: You love freedom. A call from a friend to take a hike or a walk to the store for an unexpected item may be what motivates you to be active. These activities are good, but be sure to include a variety of moderate intensity activities on 5 or more days of the week.
 */
 }
 
@@ -28,7 +44,7 @@ week.
 function _gzflower_get_result_data(){
   $results[0] = array(
     'type' => 'sum',
-    'callback' => 'girlzone_exercise_resuls',
+    'callback' => 'gzflower_exercise_results',
   );
 
 

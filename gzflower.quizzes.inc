@@ -250,8 +250,8 @@ function _gzflower_get_quizzes(){
 
   $quiz[4] = array(
     "number" => 5,
-    "title"  => "",
-    "description" => "What type of music are you?",
+    "title"  => "What type of music are you?",
+    "description" => "",
     "questions" => array(
      0  => array(
                 'question' => "How would you prefer to spend a Friday night?",
@@ -644,15 +644,10 @@ function _gzflower_get_quizzes(){
 
 
 
-
-
-
-
-
   $quiz[10] = array(
     "number" => 11,
-    "title"  => "",
-    "description" => "Are you and reliable friend?",
+    "title"  => "Are you a reliable friend?",
+    "description" => "",
     "questions" => array(
      0  => array(
                 'question' => "Your friend’s birthday party is the same night as your favorite band’s concert.  What do you do?",

@@ -4,5 +4,7 @@ package = Girl Zone
 core = 7.x
 configure = admin/config/gzflower
 
+dependencies[] = libraries
+
 files[] = gzflower.quizzes.inc
 files[] = gzflower.results.inc
