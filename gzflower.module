@@ -74,6 +74,7 @@ function gzflower_page($account){
   drupal_add_js(drupal_get_path('module', 'gzflower') . '/gzflower.js');
   drupal_add_js(array('gzflower'=> array('flower_data'=>$flower_data)), 'setting');
 
+  dpm($flower_data);
   $output = '';
   $output .= '<div id="gzflower-canvas"></div>';
   $output .= '<div id="quiz-results-container">';
@@ -83,7 +84,7 @@ function gzflower_page($account){
     if(isset($quizzes[$quiz_num - 1])){
       $q = $quizzes[$quiz_num -1];
       $r = $flower_data[$quiz_num];
-      $output .= "<div class='quiz-result' id='quiz-result-$quiz_num>";
+      $output .= "<div class='quiz-result' id='quiz-result-$quiz_num'>";
       $output .= "<div class='quiz-title'>" . "#$quiz_num: ". $q['title'] . "</div>";
       $output .= "<div class='quiz-result'>" . $r['description'] . "</div>";
       $output .= "</div>";
@@ -216,6 +217,8 @@ function _gzflower_most_rubric($answers, $rubric){
   //Get the key, which is the winner
   $winner = key($sorted);
 
+  dpm($sorted);
+  dpm($rubric);
   $type_of_girl = $rubric['results'][strtoupper($winner)];
   return array($type_of_girl['color'], $type_of_girl['text']);
 }
