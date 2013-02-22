@@ -74,7 +74,6 @@ function gzflower_page($account){
   drupal_add_js(drupal_get_path('module', 'gzflower') . '/gzflower.js');
   drupal_add_js(array('gzflower'=> array('flower_data'=>$flower_data)), 'setting');
 
-  dpm($flower_data);
   $output = '';
   $output .= '<div id="gzflower-canvas"></div>';
   $output .= '<div id="quiz-results-container">';
