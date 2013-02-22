@@ -592,7 +592,7 @@ function _gzflower_get_quizzes(){
                   'D' => "just one, and I’ve known him/her forever",
                 ),
             ),
-     0  => array(
+     1  => array(
                 'question' => "You have a class assignment in which you can either explain something verbally, or write it out. You choose to:",
                 'answers' => array(
                   'A' => "I’ll always pick to do it verbally-I’m really good at communicating this way.",
@@ -601,7 +601,7 @@ function _gzflower_get_quizzes(){
                   'D' => "Definitely write it out, because that’s a lot easier for me then talking to people.",
                 ),
             ),
-     0  => array(
+     2  => array(
                 'question' => "Do you like being alone?",
                 'answers' => array(
                   'A' => "Nooooo- anything but that!",
@@ -610,7 +610,7 @@ function _gzflower_get_quizzes(){
                   'D' => "ALL THE TIME- I don’t feel comfortable in big groups.",
                 ),
             ),
-     0  => array(
+     3  => array(
                 'question' => "Are you a good listening, or do you prefer to be the one talking?",
                 'answers' => array(
                   'A' => "I always need to be talking.",
@@ -619,7 +619,7 @@ function _gzflower_get_quizzes(){
                   'D' => "I prefer to listen, and my friends tell me I’m good at it.",
                 ),
             ),
-     0  => array(
+     4  => array(
                 'question' => "What’s your ideal birthday party?",
                 'answers' => array(
                   'A' => "a giant blow-out bash at my favorite restaurant with fifty friends",
@@ -628,7 +628,7 @@ function _gzflower_get_quizzes(){
                   'D' => "A small get-together with just me and my immediate family.",
                 ),
             ),
-     0  => array(
+     5  => array(
                 'question' => "How would your friends describe you?",
                 'answers' => array(
                   'A' => "I’m the life of the party-never a dull moment with me!",
