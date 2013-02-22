@@ -198,7 +198,7 @@ function gzflower_quiz_form_submit($form,  &$form_state){
   else{  //updating existing
     drupal_write_record('gzflower', $record); 
   }
-  $form_state['redirect'] = 'user/' . $user->uid . '/flower';
+  $form_state['redirect'] = 'user/' . $user->uid . '/flower/' . $quiz_num .'/result';
 }
 
 function _gzflower_sum_rubric($answers, $rubric){
