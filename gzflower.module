@@ -8,15 +8,19 @@ function gzflower_menu() {
     'access arguments' => array('Administer site configuration'),
     'title' => 'gzflower config',
   );
-  $items['user/%user/flower'] = array(
-    'page callback' => 'gzflower_page',
-    'access arguments' => array('access content'),
-    'title' => 'gzflower test',
-  );
-  $items['user/%user/flower/%gzflower_gzquiz'] = array(
+  $items['user/%user/flower/%gzflower_quiz'] = array(
     'page callback' => 'gzflower_quiz_page',
     'access arguments' => array('access content'),
     'title' => 'gzflower test',
+    'page arguments' => array(1,3),
+    'type' => MENU_CALLBACK,
+  );
+  $items['user/%user/flower'] = array(
+    'page callback' => 'gzflower_page',
+    'access arguments' => array('access content'),
+    'title' => 'Girlzone Flower',
+    'page arguments' => array(1),
+    'type' => MENU_LOCAL_TASK,
   );
   return $items;
 }
@@ -26,18 +30,127 @@ function gzflower_config_page(){
 }
 
 
-function gzflower_page(){
-  return t('wtf');
+function gzflower_page($user){
+  global $user;
+  $flower_data = _gzflower_load_flower_data($user);
+  dpm($flower_data);
+  return t('flower page');
 }
 
 function gzflower_quiz_page($user, $quiz){
-  
+  global $user;
+  if(!$quiz){ return drupal_not_found(); }
+  drupal_set_title($quiz['title']);
+  $out = '';
+  $out .= '<div class="quiz-description">' . $quiz['description'] . '</div>';
+  $out .= drupal_render(drupal_get_form('gzflower_quiz_form', $quiz));
+  return $out;
 }
 
-function qzflower_gzquiz_load($quiz_number){
-  $quizzes = _gzflower_get_quizzes();
-  if(!isset($quizzes[$quiz_number - 1])){
-    drupal_not_found();
+function gzflower_quiz_load($quiz_number){
+  if(!is_numeric($quiz_number) || $quiz_number > 12){
+    return NULL;
   }
+  module_load_include('inc', 'gzflower', 'gzflower.quizzes');
+  $quizzes = _gzflower_get_quizzes();
   return $quizzes[$quiz_number -1];
 }
+
+function gzflower_quiz_form($form, &$form_state, $quiz){
+  $form = array();
+  $form['quiz_num'] = array(
+    '#type' => 'hidden',
+    '#value' => $quiz['number'],
+  );
+  $form['questions'] = array(
+    '#type' => 'fieldset',
+    '#collapsible' => false,
+    '#tree' => true,
+  );
+  foreach($quiz['questions'] as $key => $question){
+    $form['questions'][$key] = array(
+      '#type' => 'radios',
+      '#title' => $question['question'],
+      '#options' => $question['answers'], 
+      '#required' => true,
+    );
+  }
+  $form['submit'] = array(
+    '#type' => 'submit',
+    '#value' => 'Submit',
+  );
+  return $form;
+}
+
+function gzflower_quiz_form_submit($form,  &$form_state){
+  module_load_include('inc', 'gzflower', 'gzflower.results');
+  global $user;
+  $flower_data = _gzflower_load_flower_data($user);
+
+  //We set the flower_data to an empty array if this user hasn't taken any tests
+  // And set the primary key to null so we know it is an insert
+  if(!$flower_data){
+    $flower_data = array();
+    $primary_key = null; 
+  }
+  else{
+    $primary_key = 'uid'; 
+  }
+
+  $results  = _gzflower_get_result_data();
+
+  $quiz_num = $form_state['values']['quiz_num'];
+  $rubric   = $results[$quiz_num -1];
+  $answers  = $form_state['values']['questions'];
+  
+  switch($rubric['type']){
+    case 'sum': list($color, $description) = _gzflower_sum_rubric($answers, $rubric);
+      break;
+    case 'most': list($color, $description) = _gzflower_most_rubric($answers, $rubric);
+      break;
+  }
+
+  $flower_data[$quiz_num]['color'] = $color;
+  $flower_data[$quiz_num]['description'] = $description;
+
+  $record = array(
+    'uid' => $user->uid,
+    'data' => serialize($flower_data),
+  );
+
+  if($primary_key){  //inserting new value
+    drupal_write_record('gzflower', $record, $primary_key); 
+  }
+  else{  //updating existing
+    drupal_write_record('gzflower', $record); 
+  }
+}
+
+function _gzflower_sum_rubric($answers, $rubric){
+}
+
+function _gzflower_most_rubric($answers, $rubric){
+  $results = array_count_values($answers);
+  asort($results);
+  $sorted = array_reverse($results, true);
+
+  //Reset the pointer to the first itme in the array
+  reset($sorted);
+
+  //Get the key, which is the winner
+  $winner = key($sorted);
+
+  $type_of_girl = $rubric['results'][strtoupper($winner)];
+  return array($type_of_girl['color'], $type_of_girl['text']);
+}
+
+function _gzflower_load_flower_data($user){
+  $data = db_query('SELECT data FROM {gzflower} WHERE uid=:uid', array(':uid'=>$user->uid))->fetchAssoc();
+  if(!$data){
+    return FALSE;
+  }
+  else{
+    return unserialize($data['data']);
+  }
+}
+

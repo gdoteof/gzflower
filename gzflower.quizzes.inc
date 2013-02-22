@@ -1,12 +1,13 @@
 ﻿<?php
-function _gz_flower_get_quizzes(){
+
+function _gzflower_get_quizzes(){
   $quiz[0] = array(
     "number" => 1,
     "title"  => "Fitness Personality.",
     "description" => "Take this quiz from the American Institute for Cancer Research to help you identify your \"fitness
   personality.\"",
     "questions" => array(
-      [0] => array(
+     0 => array(
         'question' => 'When thinking about exercise, I:',
         'answers' => array(
           'A' => "Can't wait to put on my walking shoes again.",
@@ -14,15 +15,15 @@ function _gz_flower_get_quizzes(){
           'C' => " Dread the idea of moving a muscle, but am happy once I get moving.",
         ),
       ),
-      [1] => array(
+     1 => array(
         'question' => "When I'm physically active, I enjoy exercising:",
         'answers' => array(
           'A' =>  "By myself.",
           'B' =>  "With a team or group.",
           'C' =>  "With one or two friends.",
         )
-      )
-      [2] => array(
+      ),
+     2 => array(
         'question' => "I exercise because:",
         'answers' => array(
           'A' =>  "I want to stay in shape, slim down, or improve my health.",
@@ -30,15 +31,15 @@ function _gz_flower_get_quizzes(){
           'C' =>  "The weather is nice or I just feel like it.",
         )
       ),
-      [3] => array(
+     3 => array(
         'question' => "When I take part in a physical activity, I usually:",
         'answers' => array(
           'A' =>  "Plan the event ahead of time.",
           'B' =>  "Participate when someone else has arranged the activity or class.",
           'C' =>  "Pull it together quickly and do something active when the mood strikes.",
         ),
-      )
-      [4] => array(
+      ),
+     4 => array(
           'question' =>  "Others see me as:",
           'answers' => array(
           'A' => "A leader.",
@@ -46,8 +47,8 @@ function _gz_flower_get_quizzes(){
           'C' => "Someone who always goes along with a good idea.",
           )
        ),
-      [5]  => array(
-          'question' => "I enjoy physical activities that are:"
+     5  => array(
+          'question' => "I enjoy physical activities that are:",
           'answers' => array(
           'A' => "Set by my own routine.",
           'B' => "Set by a professional, teacher, or group.",
@@ -63,8 +64,8 @@ function _gz_flower_get_quizzes(){
     "title"  => "You and Food",
     "description" => "Answer the questions below to determine your food personality.",
     "questions" => array(
-      [0]  => array(
-            'question' => "Do you like to cook for yourself and/or friends?"
+     0  => array(
+            'question' => "Do you like to cook for yourself and/or friends?",
             'answers' => array(
               'A' => "Yes, I love it– I think cooking’s fun!",
               'B' => "It’s OK – I will bake cookies or cook something occasionally if I have time.",
@@ -72,8 +73,8 @@ function _gz_flower_get_quizzes(){
               'D' => "No, I hate it – I like to eat food already prepared for me at home or a restaurant!",
           ),
      ),
-      [0]  => array(
-                'question' => "How would you describe your cooking skills and habits?"
+     1  => array(
+                'question' => "How would you describe your cooking skills and habits?",
                 'answers' => array(
                   'A' => "I am a good cook and enjoy experimenting with new recipes.",
                   'B' => "I am an OK cook, but too many steps is a turnoff.",
@@ -81,8 +82,8 @@ function _gz_flower_get_quizzes(){
                   'D' => "I rarely cook, it’s too much work.",
                 ),
               ),
-      [0]  => array(
-                'question' => "How would you describe your cooking?"
+     2  => array(
+                'question' => "How would you describe your cooking?",
                 'answers' => array(
                   'A' => "I like to use fresh ingredients",
                   'B' => "I use primarily fresh ingredients with some prepackaged",
@@ -90,8 +91,8 @@ function _gz_flower_get_quizzes(){
                   'D' => "I liked prepared foods or something microwaveable.",
                 ),
               ),
-      [0]  => array(
-                'question' => "What types of foods do you like?"
+     3  => array(
+                'question' => "What types of foods do you like?",
                 'answers' => array(
                   'A' => "I love to try all types of food, the weirder the better!",
                   'B' => "I try to have an open mind with trying new foods.",
@@ -99,7 +100,7 @@ function _gz_flower_get_quizzes(){
                   'D' => "I have a very specific list of foods I like – at home, with friends or at restaurants.",
                 ),
               ),
-      [0]  => array(
+     4  => array(
                 'question' => "How much do you know about the connection between food and health?",
                 'answers' => array(
                   'A' => "I know what foods are healthy and unhealthy and generally try to eat nutritious foods.",
@@ -108,7 +109,7 @@ function _gz_flower_get_quizzes(){
                   'D' => "I don’t worry about calories, fat, or how the food affects my body – if I like it, I eat it!",
                 ),
               ),
-      [0]  => array(
+     5  => array(
                 'question' => "How often does your family eat dinner together?",
                 'answers' => array(
                   'A' => "My family eats together most nights.",
@@ -121,19 +122,12 @@ function _gz_flower_get_quizzes(){
   );
 
 
-
-      [0]  => array(
-                'question' => "",
-                'answers' => array(
-                ),
-              ),
-
-  $quiz[1] = array(
-    "number" => 2,
+  $quiz[2] = array(
+    "number" => 3,
     "title"  => "Which Celebrity Are You?",
     "description" => "",
     "questions" => array(
-      [0]  => array(
+     0  => array(
                 'question' => "An interviewer asks you a question regarding your feelings about your relationship being publicly documented in the media. How do you respond?",
                 'answers' => array(
                   'a' => "You don’t want your relationship documented in the press, but you feel like the more you try and hide it, the more attention you’ll inadvertently draw.",
@@ -142,7 +136,7 @@ function _gz_flower_get_quizzes(){
                   'd' => "People can think whatever they want.",
                 ),
               ),
-      [1]  => array(
+     1  => array(
                 'question' => "Your ideal outfit consists of:",
                 'answers' => array(
                   'a' => "A dress that is both form fitting and classy.",
@@ -151,7 +145,7 @@ function _gz_flower_get_quizzes(){
                   'd' => "Anything simple, classic, and chic!",
                 ),
               ),
-      [2]  => array(
+     2  => array(
                 'question' => "You get nervous in interviews and end up…",
                 'answers' => array(
                   'a' => "Saying really ridiculous things.",
@@ -160,7 +154,7 @@ function _gz_flower_get_quizzes(){
                   'd' => "Nervous? No way! You’re confident and adorable. You enjoy just being yourself!",
                 ),
               ),
-      [3]  => array(
+     3  => array(
                 'question' => "After a break-up, you…",
                 'answers' => array(
                   'a' => "Do your best to move on. You play nice and keep things amicable. You want nothing, but the best for the people in your life.",
@@ -169,7 +163,7 @@ function _gz_flower_get_quizzes(){
                   'd' => "Turn to your friends. They always know just what you need!",
                 ),
               ),
-      [4]  => array(
+     4  => array(
                 'question' => "You’re bored on a Friday night. What do you do?",
                 'answers' => array(
                   'a' => "Go to Wal-Mart with a friend and see which of you can find the most random items.",
@@ -184,12 +178,12 @@ function _gz_flower_get_quizzes(){
 
 
 
-  $quiz[1] = array(
-    "number" => 2,
+  $quiz[3] = array(
+    "number" => 4,
     "title"  => "What Season Are You?",
     "description" => "",
     "questions" => array(
-      [0]  => array(
+     0  => array(
                 'question' => "What time do you prefer to wake up every day?",
                 'answers' => array(
                   'a' => "I’m a morning person! I’m up with the sun!",
@@ -198,7 +192,7 @@ function _gz_flower_get_quizzes(){
                   'd' => "I sleep in as long as I can, before getting ready for school.",
                 ),
             ),
-      [1]  => array(
+     1  => array(
                 'question' => "What are your favorite Colors?",
                 'answers' => array(
                   'a' => "Soft yellows, pinks, purples, and greens.",
@@ -207,7 +201,7 @@ function _gz_flower_get_quizzes(){
                   'd' => "Rich golds, reds, and oranges.",
                 ),
             ),
-      [2]  => array(
+     2  => array(
                 'question' => "Your favorite sound could be described as…",
                 'answers' => array(
                   'a' => "Birds chirping",
@@ -216,7 +210,7 @@ function _gz_flower_get_quizzes(){
                   'd' => "Leaves crunching",
                 ),
             ),
-      [3]  => array(
+     3  => array(
                 'question' => "Your ideal day would consist of…",
                 'answers' => array(
                   'a' => "A picnic with some of your best friends.",
@@ -225,7 +219,7 @@ function _gz_flower_get_quizzes(){
                   'd' => "A night cheering on your high school’s football team.",
                 ),
             ),
-      [4]  => array(
+     4  => array(
                 'question' => "What Kind of weather do you like best?",
                 'answers' => array(
                   'a' => "Sunny and breezy!",
@@ -234,7 +228,7 @@ function _gz_flower_get_quizzes(){
                   'd' => "Mostly dry with occasional rain.",
                 ),
             ),
-      [5]  => array(
+     5  => array(
                 'question' => "You like hanging out with friends…",
                 'answers' => array(
                   'a' => "Almost always!",
@@ -259,7 +253,7 @@ function _gz_flower_get_quizzes(){
     "title"  => "",
     "description" => "What type of music are you?",
     "questions" => array(
-      [0]  => array(
+     0  => array(
                 'question' => "How would you prefer to spend a Friday night?",
                 'answers' => array(
                   'a' => "Out dancing with friends.",
@@ -268,7 +262,7 @@ function _gz_flower_get_quizzes(){
                   'd' => "On a night hike.",
                 ),
             ),
-      [1]  => array(
+     1  => array(
                 'question' => "Which of the following best describes you?",
                 'answers' => array(
                   'a' => "Sassy",
@@ -277,7 +271,7 @@ function _gz_flower_get_quizzes(){
                   'd' => "Earthy",
                 ),
             ),
-      [2]  => array(
+     2  => array(
                 'question' => "How would you describe your style?",
                 'answers' => array(
                   'a' => "Urban",
@@ -286,7 +280,7 @@ function _gz_flower_get_quizzes(){
                   'd' => "Bohemian",
                 ),
             ),
-      [3]  => array(
+     3  => array(
                 'question' => "Which of the following colors do you like best?",
                 'answers' => array(
                   'a' => "Blue",
@@ -295,7 +289,7 @@ function _gz_flower_get_quizzes(){
                   'd' => "Green",
                 ),
             ),
-      [4]  => array(
+     4  => array(
                 'question' => "What is your favorite of these animals?",
                 'answers' => array(
                   'a' => "Crocodile",
@@ -304,7 +298,7 @@ function _gz_flower_get_quizzes(){
                   'd' => "Otter",
                 ),
             ),
-      [5]  => array(
+     5  => array(
                 'question' => "What is your favorite website?",
                 'answers' => array(
                   'a' => "YouTube",
@@ -313,7 +307,7 @@ function _gz_flower_get_quizzes(){
                   'd' => "I don’t spend much time on the Internet.",
                 ),
             ),
-      [6]  => array(
+     6  => array(
                 'question' => "Favorite celebrity?",
                 'answers' => array(
                   'a' => "Nicki Minaj",
@@ -332,7 +326,7 @@ function _gz_flower_get_quizzes(){
     "title"  => "What Type of Volunteering Suits You?",
     "description" => "",
     "questions" => array(
-      [0]  => array(
+     0  => array(
                 'question' => "Your friend invites you for a sleepover at her house. Upon arrival, you realize that her family lives differently than you do. How do you respond to this?",
                 'answers' => array(
                   'a' => "You prefer to stick with what you're comfortable with, but you guess you can at least get through the night.",
@@ -341,7 +335,7 @@ function _gz_flower_get_quizzes(){
                   'd' => "Pretend to be sick and have your mom come get you.",
                 ),
             ),
-      [1]  => array(
+     1  => array(
                 'question' => "You’re assigned a group project in class. What role do you assume?",
                 'answers' => array(
                   'a' => "I usually do whatever task is assigned to me by my group members.",
@@ -350,7 +344,7 @@ function _gz_flower_get_quizzes(){
                   'd' => "Group projects? No thank you!",
                 ),
             ),
-      [2]  => array(
+     2  => array(
                 'question' => "There’s a new transfer student at school. She is extremely shy and doesn’t know anybody yet. What do you do?",
                 'answers' => array(
                   'a' => "I’m friendly when I see her in class. I’m trying to give her time to adjust to the new school.",
@@ -359,7 +353,7 @@ function _gz_flower_get_quizzes(){
                   'd' => "Nothing. You’re nice when you see her, but don’t go out of your way to get to know her.",
                 ),
             ),
-      [3]  => array(
+     3  => array(
                 'question' => "What is your dream job?",
                 'answers' => array(
                   'a' => "Teaching.",
@@ -368,7 +362,7 @@ function _gz_flower_get_quizzes(){
                   'd' => "A researcher.",
                 ),
             ),
-      [4]  => array(
+     4  => array(
                 'question' => "If you could solve one issue plaguing our society, what would it be?",
                 'answers' => array(
                   'a' => "Improve literacy rates and equalize education.",
@@ -377,7 +371,7 @@ function _gz_flower_get_quizzes(){
                   'd' => "Eliminate disease.",
                 ),
             ),
-      [5]  => array(
+     5  => array(
                 'question' => "In your spare time, you…",
                 'answers' => array(
                   'a' => "Read and work as a tutor.",
@@ -395,7 +389,7 @@ function _gz_flower_get_quizzes(){
     "title"  => "What’s Your Style Quiz?",
     "description" => "",
     "questions" => array(
-      [0]  => array(
+     0  => array(
                 'question' => "What type of shoes do you prefer to wear?",
                 'answers' => array(
                   'a' => "Tennis Shoes",
@@ -404,7 +398,7 @@ function _gz_flower_get_quizzes(){
                   'd' => "Flats",
                 ),
             ),
-      [1]  => array(
+     1  => array(
                 'question' => "Your ideal outfit:",
                 'answers' => array(
                   'a' => "Anything that allows me to move around comfortably.",
@@ -413,7 +407,7 @@ function _gz_flower_get_quizzes(){
                   'd' => "Jeans, flats, and a cute shirt!",
                 ),
             ),
-      [2]  => array(
+     2  => array(
                 'question' => "What’s your favorite color palette?",
                 'answers' => array(
                   'a' => "Bright colors",
@@ -422,7 +416,7 @@ function _gz_flower_get_quizzes(){
                   'd' => "Muted colors",
                 ),
             ),
-      [3]  => array(
+     3  => array(
                 'question' => "If you could live anywhere, where would it be?",
                 'answers' => array(
                   'a' => "A small town",
@@ -431,7 +425,7 @@ function _gz_flower_get_quizzes(){
                   'd' => "A small town that’s close to the city.",
                 ),
            ),
-      [4]  => array(
+     4  => array(
                 'question' => "Your overall attitude could be described as:",
                 'answers' => array(
                   'a' => "Laid back, but energetic.",
@@ -455,7 +449,7 @@ function _gz_flower_get_quizzes(){
     "title"  => "Movies - What movie genre do you like?",
     "description" => "",
     "questions" => array(
-      [0]  => array(
+     0  => array(
                 'question' => "Who’s your favorite movie couple?",
                 'answers' => array(
                   'A' => "Julia Roberts and Hugh Grant in Notting Hill",
@@ -464,7 +458,7 @@ function _gz_flower_get_quizzes(){
                   'D' => "Alex Pettyfer and Dianna Agron in I Am Number Four",
                 ),
            ),
-      [1]  => array(
+     1  => array(
                 'question' => "When you watch a movie, what do you want the main character to do?",
                 'answers' => array(
                   'A' => "trip over a banana peel and make a fool of themselves in front of their crush",
@@ -473,7 +467,7 @@ function _gz_flower_get_quizzes(){
                   'D' => "fight a flesh-hungry zombie",
                 ),
            ),
-      [2]  => array(
+     2  => array(
                 'question' => "Do you like to talk about your emotions with friends or family?",
                 'answers' => array(
                   'A' => "Yes! I am very open about my emotions.",
@@ -482,7 +476,7 @@ function _gz_flower_get_quizzes(){
                   'D' => "I rarely share my feelings with others.",
                 ),
            ),
-      [3]  => array(
+     3  => array(
                 'question' => "Do you like jokes and slapstick?",
                 'answers' => array(
                   'A' => "Yes-I laugh all the time!",
@@ -491,7 +485,7 @@ function _gz_flower_get_quizzes(){
                   'D' => "I never laugh out loud.",
                 ),
            ),
-      [4]  => array(
+     4  => array(
                 'question' => "How do you feel when you watch a kissing scene?",
                 'answers' => array(
                   'A' => "Give me more! No movie has enough kissing scenes for me.",
@@ -500,7 +494,7 @@ function _gz_flower_get_quizzes(){
                   'D' => "Eww! Gross! Not for me.",
                 ),
            ),
-      [5]  => array(
+     5  => array(
                 'question' => "What type of clothing do you want your favorite character to be wearing during the movie?",
                 'answers' => array(
                   'A' => "Fancy dresses and skirts",
@@ -519,7 +513,7 @@ function _gz_flower_get_quizzes(){
     "title"  => "Elements –What Type of Element are You?",
     "description" => "",
     "questions" => array(
-      [0]  => array(
+     0  => array(
                 'question' => "Which animal do you like the best?",
                 'answers' => array(
                   'A' => "rabbit",
@@ -528,7 +522,7 @@ function _gz_flower_get_quizzes(){
                   'D' => "phoenix",
                 ),
            ),
-      [1]  => array(
+     1  => array(
                 'question' => "If you could pick one activity to learn, it would be:",
                 'answers' => array(
                   'A' => "rock-climbing",
@@ -537,7 +531,7 @@ function _gz_flower_get_quizzes(){
                   'D' => "juggling with flaming torches",
                 ),
            ),
-      [2]  => array(
+     2  => array(
                 'question' => "What is your favorite color?",
                 'answers' => array(
                   'A' => "green/brown",
@@ -546,7 +540,7 @@ function _gz_flower_get_quizzes(){
                   'D' => "orange/red",
                 ),
            ),
-      [3]  => array(
+     3  => array(
                 'question' => "How do you like to travel?",
                 'answers' => array(
                   'A' => "by train or car",
@@ -555,7 +549,7 @@ function _gz_flower_get_quizzes(){
                   'D' => "by foot",
                 ),
            ),
-      [4]  => array(
+     4  => array(
                 'question' => "Which movie do you prefer?",
                 'answers' => array(
                   'A' => "Journey to the Center of the Earth",
@@ -564,7 +558,7 @@ function _gz_flower_get_quizzes(){
                   'D' => "Ladder 49",
                 ),
            ),
-      [5]  => array(
+     5  => array(
                 'question' => "You have the day off from school. Which activity would you prefer to do with your friends?",
                 'answers' => array(
                   'A' => "Plant flowers in a garden",
@@ -589,7 +583,7 @@ function _gz_flower_get_quizzes(){
     "title"  => "Are you an Introvert or an Extrovert?",
     "description" => "",
     "questions" => array(
-      [0]  => array(
+     0  => array(
                 'question' => "How many “best friends” do you have?",
                 'answers' => array(
                   'A' => "six or more",
@@ -598,7 +592,7 @@ function _gz_flower_get_quizzes(){
                   'D' => "just one, and I’ve known him/her forever",
                 ),
             ),
-      [0]  => array(
+     0  => array(
                 'question' => "You have a class assignment in which you can either explain something verbally, or write it out. You choose to:",
                 'answers' => array(
                   'A' => "I’ll always pick to do it verbally-I’m really good at communicating this way.",
@@ -607,7 +601,7 @@ function _gz_flower_get_quizzes(){
                   'D' => "Definitely write it out, because that’s a lot easier for me then talking to people.",
                 ),
             ),
-      [0]  => array(
+     0  => array(
                 'question' => "Do you like being alone?",
                 'answers' => array(
                   'A' => "Nooooo- anything but that!",
@@ -616,7 +610,7 @@ function _gz_flower_get_quizzes(){
                   'D' => "ALL THE TIME- I don’t feel comfortable in big groups.",
                 ),
             ),
-      [0]  => array(
+     0  => array(
                 'question' => "Are you a good listening, or do you prefer to be the one talking?",
                 'answers' => array(
                   'A' => "I always need to be talking.",
@@ -625,7 +619,7 @@ function _gz_flower_get_quizzes(){
                   'D' => "I prefer to listen, and my friends tell me I’m good at it.",
                 ),
             ),
-      [0]  => array(
+     0  => array(
                 'question' => "What’s your ideal birthday party?",
                 'answers' => array(
                   'A' => "a giant blow-out bash at my favorite restaurant with fifty friends",
@@ -634,7 +628,7 @@ function _gz_flower_get_quizzes(){
                   'D' => "A small get-together with just me and my immediate family.",
                 ),
             ),
-      [0]  => array(
+     0  => array(
                 'question' => "How would your friends describe you?",
                 'answers' => array(
                   'A' => "I’m the life of the party-never a dull moment with me!",
@@ -660,7 +654,7 @@ function _gz_flower_get_quizzes(){
     "title"  => "",
     "description" => "Are you and reliable friend?",
     "questions" => array(
-      [0]  => array(
+     0  => array(
                 'question' => "Your friend’s birthday party is the same night as your favorite band’s concert.  What do you do?",
                 'answers' => array(
                   'A' => "Obviously, go to the birthday party. It’s for my best friend, after all.",
@@ -669,7 +663,7 @@ function _gz_flower_get_quizzes(){
                   'D' => "Blow off the party for the concert-after all, my friend has one every year!",
                 ),
             ),
-      [1]  => array(
+     1  => array(
                 'question' => "You are doing a group project. Which best describes you?",
                 'answers' => array(
                   'A' => "I do my part as well as everyone else’s, just in case.",
@@ -678,7 +672,7 @@ function _gz_flower_get_quizzes(){
                   'D' => "I don’t bother doing my part-someone else will deal with it.",
                 ),
             ),
-      [2]  => array(
+     2  => array(
                 'question' => "What time do you get to school in the morning?",
                 'answers' => array(
                   'A' => "I always arrive twenty minutes early, just in case there’s traffic.",
@@ -687,7 +681,7 @@ function _gz_flower_get_quizzes(){
                   'D' => "I usually sleep through my alarm and often miss my first class.",
                 ),
             ),
-      [3]  => array(
+     3  => array(
                 'question' => "Your friend asks you for help with editing her essay. What do you do?",
                 'answers' => array(
                   'A' => "I offer to help her in any way I can.",
@@ -696,7 +690,7 @@ function _gz_flower_get_quizzes(){
                   'D' => "I say I probably don’t have time to help her.",
                 ),
             ),
-      [4]  => array(
+     4  => array(
                 'question' => "Your best friend calls from the airport. Her parents aren’t able to pick her up, and she needs a ride home. What do you do?",
                 'answers' => array(
                   'A' => "I jump in my car to get her, even if I had other plans.",
@@ -705,7 +699,7 @@ function _gz_flower_get_quizzes(){
                   'D' => "I say I can’t do it, because Pretty Little Liars just came on.",
                 ),
             ),
-      [5]  => array(
+     5  => array(
                 'question' => "Your best friend has started smoking. What is your reaction?",
                 'answers' => array(
                   'A' => "Ask him/her to quit, and explain about all the horrible side effects",
@@ -729,7 +723,7 @@ function _gz_flower_get_quizzes(){
     "title"  => "What type of Entertainment do you prefer?",
     "description" => "",
     "questions" => array(
-      [0]  => array(
+     0  => array(
                 'question' => "When you hear a story you like to:",
                 'answers' => array(
                   '1' => "Experience if for myself, so I can imagine what all the characters look like",
@@ -738,7 +732,7 @@ function _gz_flower_get_quizzes(){
                   '4' => "See it acted out in real-time, with real people",
                 ),
             ),
-      [1]  => array(
+     1  => array(
                 'question' => "Where do you like to be when you are entertained?",
                 'answers' => array(
                   '1' => "my house",
@@ -747,7 +741,7 @@ function _gz_flower_get_quizzes(){
                   '4' => "a beautiful old theater",
                 ),
             ),
-      [2]  => array(
+     2  => array(
                 'question' => "How long do you like to pay attention for?",
                 'answers' => array(
                   '1' => "for different amounts of time, whenever I feel like it",
@@ -756,7 +750,7 @@ function _gz_flower_get_quizzes(){
                   '4' => "two to three hours, with an intermission to split it up",
                 ),
             ),
-      [3]  => array(
+     3  => array(
                 'question' => "What do you like to do when you are entertained?",
                 'answers' => array(
                   '1' => "curl up on the coach or in a chair in quiet space",
@@ -765,7 +759,7 @@ function _gz_flower_get_quizzes(){
                   '4' => "get totally lost in the story",
                 ),
             ),
-      [4]  => array(
+     4  => array(
                 'question' => "Do you like to participate with people?",
                 'answers' => array(
                   '1' => "No people, just me",
@@ -776,5 +770,5 @@ function _gz_flower_get_quizzes(){
             ),
     ),
   );
-  return $quizzes;
+  return $quiz;
 }
