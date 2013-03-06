@@ -40,23 +40,20 @@ function gzflower_quiz_result_page($account, $quiz){
   $q = $quiz;
   $quiz_num = $quiz['number'];
   $flower_data = _gzflower_load_flower_data($account);
-  $r = $flower_data[$quiz_num];
+  $result = $flower_data[$quiz_num];
   if(!isset($flower_data[$quiz_num])){
     drupal_goto('user/' . $account->uid . '/flower'); 
   }
-  else{
-    $output = '';
-    $output .= "<div class='quiz-result' id='quiz-result-$quiz_num>";
-    $output .= "<div class='quiz-title'>"  . $q['title'] . "</div>";
-    $output .= "<div class='quiz-result'>" . $r['description'] . "</div>";
-    $output .= "</div>";
-  }
-  $output .= '<div class="back-to-profile-container">' . l('See your profile shape!', 'user/' . $account->uid . '/flower') .'</div>';
-  return $output;
+  return theme('gzflower_quiz_result_page', array('account'=>$account, 'quiz'=>$quiz, 'result'=>$result, 'quiz_num'=>$quiz_num));
 }
 
 
 function gzflower_page($account){
+  return theme('gzflower_page', array('account'=>$account));
+}
+
+function template_preprocess_gzflower_page(&$vars){
+  $account = $vars['account'];
   module_load_include('inc', 'gzflower', 'gzflower.quizzes');
   if (!(($library = libraries_detect('d3')) && !empty($library['installed']))) {
     drupal_set_message("Please install D3 (http://www.d3js.org/) into the libraries folder (d3.min.js)", "error");
@@ -74,49 +71,26 @@ function gzflower_page($account){
   drupal_add_js(drupal_get_path('module', 'gzflower') . '/gzflower.js');
   drupal_add_js(array('gzflower'=> array('flower_data'=>$flower_data)), 'setting');
 
-  $output = '';
-  $output .= '<div id="gzflower-canvas"></div>';
-  $output .= '<div id="quiz-results-container">';
-  $output .= '<span id="quiz-results-header">The quizzes you have taken so far as resulted in these identity aspects...</span>';
   ksort($flower_data);  //flower data is naturally in the order users took the quizzes, lets put them in order
-  foreach($flower_data as $quiz_num => $quiz_result){
-    if(isset($quizzes[$quiz_num - 1])){
-      $q = $quizzes[$quiz_num -1];
-      $r = $flower_data[$quiz_num];
-      $output .= "<div class='quiz-result' id='quiz-result-$quiz_num'>";
-      $output .= "<div class='quiz-title'>" . "#$quiz_num: ". $q['title'] . "</div>";
-      $output .= "<div class='quiz-result'>" . $r['description'] . "</div>";
-      $output .= "</div>";
-    }
-  }
-  $output .= '</div>'; //end quiz-results-container
-  if($user->uid != $account->uid){
-    //Not current user's profile so they can't take the user's test
-    return $output;
-  }
-  foreach($quizzes as $key => $quiz){
-    $output .= '<div class="quiz-description-container">';
-    $output .=  '<div class="quiz-title">'       . l($quiz['title'], 'user/'. $user->uid .'/flower/' . ($key +1)) . '</div>';
-    $output .=  '<div class="quiz-description">' . $quiz['description'] . '</div>';
-    $output .= '</div>';
-  }
-  return $output;
-
+  $vars['flower_data'] = $flower_data;
+  $vars['quiz_data'] = $quizzes;
 }
 
 function gzflower_quiz_page($account, $quiz){
-  global $user;
   if(!$quiz){ return drupal_not_found(); }
+  global $user;
   if($account->uid != $user->uid){
     //Cannot take a quiz for someone else!
     drupal_access_denied();
   }
   drupal_set_title($quiz['title']);
-  $out = '';
-  $out .= '<div class="quiz-description">' . $quiz['description'] . '</div>';
+  return theme('gzflower_quiz_page', array('account'=>$account, 'quiz'=>$quiz));
+}
+
+function template_preprocess_gzflower_quiz_page(&$vars){
+  $quiz = $vars['quiz'];
   $form = drupal_get_form('gzflower_quiz_form', $quiz);
-  $out .= drupal_render($form);
-  return $out;
+  $vars['form'] = drupal_render($form);
 }
 
 function gzflower_quiz_load($quiz_number){
@@ -230,3 +204,32 @@ function _gzflower_load_flower_data($account){
   }
 }
 
+
+function gzflower_theme($existing, $type, $theme, $path){
+  return array(
+    'gzflower_page' => array(
+      'template' => 'gzflower-page',
+      'variables' => array(
+        array(
+          'account' => NULL,
+        )
+      )
+    ),
+    'gzflower_quiz_page' => array(
+      'template' => 'gzflower-quiz-page',
+      'variables' => array(
+        'account' => NULL,
+        'quiz' => NULL,
+      )
+    ),
+    'gzflower_quiz_result_page' => array(
+      'template' => 'gzflower-quiz-result-page',
+      'variables' => array(
+        'account' => NULL,
+        'quiz' => NULL,
+        'result' => NULL,
+        'quiz_num' => NULL,
+      )
+    )
+  );
+}

@@ -1,7 +1,6 @@
 ﻿<?php
 
 function gzflower_exercise_results($answers){
-  dpm($answers);
   $sum = 0;
   $vals = array('A'=>1, 'B'=>2, 'C' => 3);
   foreach($answers as $answer){
