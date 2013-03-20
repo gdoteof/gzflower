@@ -27,7 +27,23 @@ function gzflower_menu() {
     'page arguments' => array(1),
     'type' => MENU_LOCAL_TASK,
   );
+  $items['flower'] = array(
+    'page callback' => 'gzflower_helper',
+    'access arguments' => array('access content'),
+    'title' => 'Profile Shape',
+    'type' => MENU_CALLBACK,
+  );
   return $items;
+}
+
+function gzflower_helper() {
+  global $user;
+  if($user->uid == 0){
+    drupal_goto('make-your-profile');
+  }
+  else{
+    drupal_goto('user/' . $user->uid . '/flower');
+  }
 }
 
 function gzflower_config_page(){
@@ -49,10 +65,6 @@ function gzflower_quiz_result_page($account, $quiz){
 
 
 function gzflower_page($account){
-  if($account->uid == 0) {
-    drupal_set_message("You need to connect via Facebook to create your personality shape!");
-    drupal_goto(); //you can change this to drupal_goto("path/to/facebook/connect");
-  }
   return theme('gzflower_page', array('account'=>$account));
 }
 
